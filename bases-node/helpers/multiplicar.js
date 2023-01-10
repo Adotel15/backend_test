@@ -1,5 +1,8 @@
 
-const fs = require('fs'); 
+const fs = require('fs');
+const colors = require('colors');
+
+colors.enable();
 
 const crearTabla = async (base = 5, listar) => {
 
@@ -10,9 +13,9 @@ const crearTabla = async (base = 5, listar) => {
 
 
         if(listar) {
-            console.log("==================");
-            console.log(`  Tabla del ${base}`);
-            console.log("==================");
+            console.log("==================".red );
+            console.log(`   Tabla del ${base}   `.blue );
+            console.log("==================".red );
             
             console.log(salida)
         }
