@@ -4,12 +4,14 @@ const colors = require('colors');
 
 colors.enable();
 
-const crearTabla = async (base = 5, listar) => {
+const crearTabla = async (base = 5, listar, hasta) => {
 
     try {
 
+
         let salida = '';
-        for(let i = 1; i < 11; ++i)  salida += `${base} x ${i} = ${ base * i }\n`;
+
+        for(let i = 1; i < hasta + 1 ; ++i)  salida += `${base} x ${i} = ${ base * i }\n`;
 
 
         if(listar) {

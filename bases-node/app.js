@@ -10,6 +10,6 @@ console.clear();
 // const [, base = 5] = arg3.split('=');
 
 
-crearTabla(argv.base, argv.listar)
+crearTabla(argv.base, argv.listar, argv.hasta)
     .then( result => console.log(result))
     .catch( error => console.log(error))
