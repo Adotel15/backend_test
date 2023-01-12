@@ -22,7 +22,7 @@ const crearTabla = async (base = 5, listar, hasta) => {
             console.log(salida)
         }
 
-        fs.writeFileSync(`tabla-${base}.txt`, salida);
+        fs.writeFileSync(`./salida/tabla-${base}.txt`, salida);
         return `Tabla ${base} creada`;
 
     } catch (err) {
