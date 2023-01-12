@@ -1,4 +1,6 @@
 
+// Menu hecho a mano, solo como ejemplo 
+
 require('colors');
 
 const showMenu = async () => {
