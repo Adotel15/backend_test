@@ -14,6 +14,10 @@ class Tasks {
         this._listTask = {};
     }
 
+    loadTasks = tasks => {
+        for(let i = 0; i < tasks.length; ++i)  this._listTask[tasks[i].id] = tasks[i]
+    }
+
  
     createTask = desc => {
         const task = new Task(desc);
