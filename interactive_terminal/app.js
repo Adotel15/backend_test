@@ -1,17 +1,19 @@
 
-require('colors');
-
-const { inquirerMenu } = require('./helpers/inquirer');
-//const { showMenu, pauseApp } = require('./helpers/messages');
+require("colors");
+const { inquirerMenu, inquirerPause } = require("./helpers/inquirer.js");
+const Task = require("./models/task.js");
 
 const main = async () => {
-    console.clear();
 
     let opt = "";
 
     do {
+
         opt = await inquirerMenu();
-        // if( opt !== '0') await pauseApp();
+        console.log({ opt });
+
+        await inquirerPause();
+
     } while(opt !== '0')
     
 }
