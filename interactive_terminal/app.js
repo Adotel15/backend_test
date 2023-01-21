@@ -19,22 +19,23 @@ const main = async () => {
     
     do {
 
-        opt = await inquirerMenu();
+        opt = await inquirerMenu();  
 
-        switch(opt) {
+        switch(opt) { 
             case '1':
                 const desc = await readInput('Descripción: ');
                 tasks.createTask(desc);
                 break;
 
             case '2':
-                console.log( tasks.getTasks )
+                tasks.allList();
                 break;
-            
             case '3':
+                tasks.listPendingCompleted(true)
                 break;
 
             case '4':
+                tasks.listPendingCompleted(false);
                 break;
 
             case '5':
