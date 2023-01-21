@@ -24,7 +24,7 @@ class Tasks {
         this._listTask[task.id] = task;
     }
 
-    deleteRask = id => {
+    deleteTask = id => {
         if( this._listTask[id] ) delete this._listTask[id];
     }
 

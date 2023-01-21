@@ -112,7 +112,7 @@ const listDelete = async tasks => {
     return id;
 }
 
-const confirm = async message => {
+const confirmDelete = async message => {
 
     const question = [
         {
@@ -131,5 +131,5 @@ module.exports = {
   inquirerPause,
   readInput,
   listDelete,
-  confirm
+  confirmDelete
 }

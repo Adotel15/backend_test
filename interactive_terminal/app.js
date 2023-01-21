@@ -5,7 +5,8 @@ const {
     inquirerMenu,
     inquirerPause,
     readInput,
-    listDelete
+    listDelete,
+    confirmDelete
 } = require("./helpers/inquirer.js");
 const Tasks = require("./models/tasks.js");
 const { saveDB, readDb } = require("./helpers/saveFile");
@@ -45,6 +46,13 @@ const main = async () => {
 
             case '6':
                 const id = await listDelete(tasks.getTasks);
+                const confirmed = await confirmDelete('¿Estás seguro que quieres eliminar la tareas?');
+
+                if(confirmed) {
+                    tasks.deleteTask(id);
+                    console.log('Borrado correctamente');
+                }
+            
                 break;
             
             default:
