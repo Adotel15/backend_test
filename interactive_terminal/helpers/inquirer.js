@@ -87,8 +87,49 @@ const readInput = async message => {
     return desc;
 }
 
+const listDelete = async tasks => {
+
+    const choices = tasks.map( (task, index) => {
+
+        const idx = `${index + 1}`.green
+
+        return {
+            value: task.id,
+            name: `${idx} ${task.desc}`
+        }        
+    })
+
+    const question = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Seleccione la tarea que quieres borrar:',
+            choices
+        }
+    ]
+
+    const { id } = await inquirer.prompt(question);
+    return id;
+}
+
+const confirm = async message => {
+
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ]
+
+    const { ok } = await inquirer.prompt(question)
+    return ok;
+}
+
 module.exports = {
   inquirerMenu,
   inquirerPause,
-  readInput
+  readInput,
+  listDelete,
+  confirm
 }
