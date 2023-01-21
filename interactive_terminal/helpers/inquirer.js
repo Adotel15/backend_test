@@ -95,8 +95,13 @@ const listDelete = async tasks => {
 
         return {
             value: task.id,
-            name: `${idx} ${task.desc}`
+            name: `${idx}. ${task.desc}`
         }        
+    })
+
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + ' Cancelar'
     })
 
     const question = [

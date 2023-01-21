@@ -46,13 +46,17 @@ const main = async () => {
 
             case '6':
                 const id = await listDelete(tasks.getTasks);
-                const confirmed = await confirmDelete('¿Estás seguro que quieres eliminar la tareas?');
 
-                if(confirmed) {
-                    tasks.deleteTask(id);
-                    console.log('Borrado correctamente');
+                if(id !== '0')
+                {
+                    const confirmed = await confirmDelete('¿Estás seguro que quieres eliminar la tareas?');
+
+                    if(confirmed) {
+                        tasks.deleteTask(id);
+                        console.log('Borrado correctamente');
+                    }
                 }
-            
+             
                 break;
             
             default:
