@@ -70,7 +70,7 @@ class Tasks {
         })
 
         this.getTasks.forEach( task => {
-            if(!ids.includes(task.id)) this._listTask[id].completedIn = null
+            if(!ids.includes(task.id)) this._listTask[task.id].completedIn = null
         })
 
 
