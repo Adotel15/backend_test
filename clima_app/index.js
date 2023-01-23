@@ -20,6 +20,8 @@ const main = async () => {
         switch(opt){
             case 1:
                 const city = await readInput('Ciudad: ');
+                
+                await search.searchCity(city);
 
                 console.log('\nInformación de la ciudad\n'.green);
                 console.log('Ciudad', );
@@ -29,9 +31,11 @@ const main = async () => {
                 console.log('Máxima: ', );
                 console.log('Mínima: ', );
                 break;
+
             case 2:
                 console.log('2');
                 break;
+
             default:
                 break;
         }
