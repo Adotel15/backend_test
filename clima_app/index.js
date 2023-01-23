@@ -1,5 +1,6 @@
 
 require('colors');
+require('dotenv').config();
 
 const {
     inquirerMenu,
@@ -7,7 +8,7 @@ const {
     readInput 
 } = require("./helpers/inquirer");
 
-const Search = require('./models/search')
+const Search = require('./models/search');
 
 const main = async () => {
 
@@ -20,7 +21,7 @@ const main = async () => {
         switch(opt){
             case 1:
                 const city = await readInput('Ciudad: ');
-                
+
                 await search.searchCity(city);
 
                 console.log('\nInformación de la ciudad\n'.green);
