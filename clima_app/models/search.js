@@ -27,7 +27,12 @@ class Search {
             })
             
             const { data } = await instance.get();
-            console.log(data)
+            return data.features.map( city => ({
+                id: city.id,
+                nombre: city.place_name,
+                lng: city.center[0],
+                lat: city.center[1]
+            }))
 
         } catch(error) {
             return [];
