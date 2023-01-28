@@ -7,7 +7,9 @@ class Search {
     history = [];
     dbPath = './db/database.json';
 
-    constructor() {}
+    constructor() {
+        this.readDB()
+    }
     
     get paramsMapBox() {
         return {
@@ -23,6 +25,16 @@ class Search {
             'lang': 'es',
             'units': 'metric'
         }
+    }
+
+    get capitalizeHistory() {
+        return this.history.map( place => {
+            
+            let words = place.split(' ');
+            words = words.map( word => word[0].toUpperCase() + word.substring(1))
+
+            return words.join(' ')
+        })
     }
 
     searchCity = async (nameCity = '') => {
@@ -89,6 +101,12 @@ class Search {
     }
 
     readDB = () => {
+
+        if( !fs.existsSync(this.dbPath) ) return;
+        const fileData = fs.readFileSync( this.dbPath, {encoding: 'utf-8'} )
+        const jsData = JSON.parse(fileData);
+
+        this.history = jsData.history;
 
     }
 }

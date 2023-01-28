@@ -42,7 +42,7 @@ const main = async () => {
                 break;
 
             case 2:
-                search.history.forEach( (place, index) => {
+                search.capitalizeHistory.forEach( (place, index) => {
                     const idx = `${index + 1}`.green;
                     console.log(`${idx} ${place}`)
                 })
