@@ -58,7 +58,7 @@ class Search {
             const { weather, main } = data
 
             return {
-                desc: weather.description,
+                desc: weather[0].description,
                 min: main.temp_min,
                 max: main.temp_max,
                 temp: main.temp

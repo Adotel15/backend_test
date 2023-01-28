@@ -35,6 +35,7 @@ const main = async () => {
                 console.log('Temperatura: '.blue, clima.temp );
                 console.log('Máxima: '.blue, clima.max );
                 console.log('Mínima: '.blue, clima.min );
+                console.log('Como está el clima: '.blue, clima.desc )
                 break;
 
             case 2:
