@@ -3,7 +3,7 @@ const axios = require('axios');
 
 class Search {
 
-    history = ['BCN', 'Madrid', 'NY'];
+    history = [];
 
     constructor() {}
     
@@ -67,6 +67,10 @@ class Search {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    addHistory = (place = '') => {
+        this.history.unshift(place);
     }
 }
 
