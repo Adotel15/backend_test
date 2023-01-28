@@ -1,9 +1,11 @@
 
+const fs = require('fs');
 const axios = require('axios');
 
 class Search {
 
     history = [];
+    dbPath = './db/database.json';
 
     constructor() {}
     
@@ -70,7 +72,24 @@ class Search {
     }
 
     addHistory = (place = '') => {
-        this.history.unshift(place);
+
+        if(this.history.includes( place.toLocaleLowerCase() )) return;
+        this.history.unshift( place.toLocaleLowerCase() );
+
+        this.saveDB();
+    }
+
+    saveDB = () => {
+
+        const payload = {
+            history: this.history
+        }
+
+        fs.writeFileSync( this.dbPath, JSON.stringify(payload) )
+    }
+
+    readDB = () => {
+
     }
 }
 
