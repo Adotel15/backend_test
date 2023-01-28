@@ -26,14 +26,15 @@ const main = async () => {
                 const places = await search.searchCity(city);
                 const idSelected = await listPlaces(places);
                 const selectedPlace = places.find( item => item.id === idSelected );
+                const clima = await search.placeClima(selectedPlace.lat, selectedPlace.lng)
 
                 console.log('\nInformación de la ciudad\n'.green);
                 console.log('Ciudad: '.blue, selectedPlace.nombre );
                 console.log('Lat: '.blue, selectedPlace.lat );
                 console.log('Lng: '.blue, selectedPlace.lng );
-                console.log('Temperatura: '.blue, );
-                console.log('Máxima: '.blue, );
-                console.log('Mínima: '.blue, );
+                console.log('Temperatura: '.blue, clima.temp );
+                console.log('Máxima: '.blue, clima.max );
+                console.log('Mínima: '.blue, clima.min );
                 break;
 
             case 2:

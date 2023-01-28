@@ -5,9 +5,7 @@ class Search {
 
     history = ['BCN', 'Madrid', 'NY'];
 
-    constructor() {
-        
-    }
+    constructor() {}
     
     get paramsMapBox() {
         return {
@@ -15,6 +13,14 @@ class Search {
             'limit': 5,
             'language': 'es'
         };
+    }
+
+    get paramsOpenWeather() {
+        return {
+            'appid': process.env.OPENWEATHER_KEY,
+            'lang': 'es',
+            'units': 'metric'
+        }
     }
 
     searchCity = async (nameCity = '') => {
@@ -37,7 +43,31 @@ class Search {
         } catch(error) {
             return [];
         }
-    } 
+    }
+
+    async placeClima(lat, lon) {
+
+        try {
+
+            const instance = axios.create({
+                baseURL:  `https://api.openweathermap.org/data/2.5/weather?`,
+                params:{ ...this.paramsOpenWeather, lat, lon }
+            });
+
+            const { data } = await instance.get();
+            const { weather, main } = data
+
+            return {
+                desc: weather.description,
+                min: main.temp_min,
+                max: main.temp_max,
+                temp: main.temp
+            } 
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 module.exports = Search;
