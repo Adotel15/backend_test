@@ -3,13 +3,17 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+app.set('view engine', 'hbs');
 // Static content
 // .use (Para ejecutar middelwares)
 // .get (para cuando se hacen peticiones al servidor en rutas concretas)
 app.use( express.static('public') );
 
 app.get('/', (req, res) => {
-    res.send("Home page")
+    res.render('home', {
+        nombre: 'Adrian',
+        titulo: 'Software Developer'
+    });
 });
 
 app.get('/generic', (req, res) => {
