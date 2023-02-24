@@ -24,11 +24,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/generic', (req, res) => {
-    res.sendFile( __dirname + '/public/generic.html')
+    res.render('generic', {
+        nombre: 'Adrian',
+        oficio: 'Software Developer',
+        title: 'Testing HBS'
+
+    });
 });
 
 app.get('/elements', (req, res) => {
-    res.sendFile( __dirname + '/public/elements.html')
+    res.render('elements', {
+        nombre: 'Adrian',
+        oficio: 'Software Developer',
+        title: 'Testing HBS'
+
+    });
 });
 
 app.get('*', (req, res) => {
